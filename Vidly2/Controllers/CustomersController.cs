@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly2.Models;
 using System.Data.Entity;   //for the Include() method (eager loading)
+using Vidly2.ViewModels;
 
 namespace Vidly2.Controllers
 {
@@ -50,11 +51,46 @@ namespace Vidly2.Controllers
        
             return View(customer);
         }
-        
+
         public ActionResult New()
         {
-            //var membershipTypes = _context.MembershipTypes.ToList();
-            return View();
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new CustomerFormViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+
+            //pass customerform as the view name
+            return View("CustomerForm", viewModel);
+        }
+
+        [HttpPost]
+        //mvc framework binds this model to the request data (model binding)
+        public ActionResult Create(Customer customer)  
+        {
+            _context.Customers.Add(customer);
+            _context.SaveChanges(); //generates sql statements and runs them at run time
+
+            //redirect user back to list of customers
+            return RedirectToAction("Index", "Customers");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customer == null)
+                return HttpNotFound();
+
+            //changed name to CustomerFormViewModel so works for new and existing customers
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            //redirect to the "New" action
+            return View("CustomerForm", viewModel);
         }
         
     }
