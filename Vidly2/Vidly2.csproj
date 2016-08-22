@@ -243,9 +243,30 @@
     <Compile Include="Migrations\201608172129029_AddReleaseDateDateAddedNumberInStock.Designer.cs">
       <DependentUpon>201608172129029_AddReleaseDateDateAddedNumberInStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608221835142_RemoveStringGenreFromMovie.cs" />
+    <Compile Include="Migrations\201608221835142_RemoveStringGenreFromMovie.Designer.cs">
+      <DependentUpon>201608221835142_RemoveStringGenreFromMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608221841025_AddGenreEntityToMovie.cs" />
+    <Compile Include="Migrations\201608221841025_AddGenreEntityToMovie.Designer.cs">
+      <DependentUpon>201608221841025_AddGenreEntityToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608221854573_AddGenreIdToMovie.cs" />
+    <Compile Include="Migrations\201608221854573_AddGenreIdToMovie.Designer.cs">
+      <DependentUpon>201608221854573_AddGenreIdToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608221917217_AddGenreForeignKeyToMovie.cs" />
+    <Compile Include="Migrations\201608221917217_AddGenreForeignKeyToMovie.Designer.cs">
+      <DependentUpon>201608221917217_AddGenreForeignKeyToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608221935324_AddGenreToMovieAgain.cs" />
+    <Compile Include="Migrations\201608221935324_AddGenreToMovieAgain.Designer.cs">
+      <DependentUpon>201608221935324_AddGenreToMovieAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -365,6 +386,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608172129029_AddReleaseDateDateAddedNumberInStock.resx">
       <DependentUpon>201608172129029_AddReleaseDateDateAddedNumberInStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608221835142_RemoveStringGenreFromMovie.resx">
+      <DependentUpon>201608221835142_RemoveStringGenreFromMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608221841025_AddGenreEntityToMovie.resx">
+      <DependentUpon>201608221841025_AddGenreEntityToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608221854573_AddGenreIdToMovie.resx">
+      <DependentUpon>201608221854573_AddGenreIdToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608221917217_AddGenreForeignKeyToMovie.resx">
+      <DependentUpon>201608221917217_AddGenreForeignKeyToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608221935324_AddGenreToMovieAgain.resx">
+      <DependentUpon>201608221935324_AddGenreToMovieAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
