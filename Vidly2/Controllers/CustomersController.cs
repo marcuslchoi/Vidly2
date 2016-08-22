@@ -66,9 +66,24 @@ namespace Vidly2.Controllers
 
         [HttpPost]
         //mvc framework binds this model to the request data (model binding)
-        public ActionResult Create(Customer customer)  
+        public ActionResult Save(Customer customer)  
         {
-            _context.Customers.Add(customer);
+            if (customer.Id == 0)
+                _context.Customers.Add(customer);
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+
+                //this updates anything user requests
+                //TryUpdateModel(customerInDb);
+
+                //can use automapper to do this: Mapper.Map(customer, customerInDb);
+                customerInDb.Name = customer.Name;
+                customerInDb.Birthdate = customer.Birthdate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.MembershipType = customer.MembershipType;
+            }
+
             _context.SaveChanges(); //generates sql statements and runs them at run time
 
             //redirect user back to list of customers

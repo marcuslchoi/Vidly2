@@ -9,7 +9,7 @@
     //create action in customers controller
     //wrap in using block so that object returned from beginform is disposed and renders closing </form> tag
 *@
-@using (Html.BeginForm("Create", "Customers"))
+@using (Html.BeginForm("Save", "Customers"))
 {
     @*Boostrap classes*@
     <div class="form-group">
@@ -35,8 +35,9 @@
         </label>
     </div>
 
+    @*hidden field, because Save action references Id*@
+    @Html.HiddenFor(m=>m.Customer.Id)
+
     <button type="submit" class="btn btn-primary">Save</button>
-
-
 }
 
