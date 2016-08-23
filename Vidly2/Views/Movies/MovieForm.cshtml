@@ -1,0 +1,40 @@
+﻿@model Vidly2.ViewModels.MovieFormViewModel
+@{
+    ViewBag.Title = "MovieForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Movie</h2>
+
+@using (Html.BeginForm("Save", "Movies"))
+{
+    @*Boostrap classes*@
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Name)
+        @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control" })   @*using textboxfor supports validation (ie string has to be 255 characters or less)*@
+    </div>
+    <div class="form-group">
+
+        @*the "for" allows user to click on the label and cursor goes to birthdate field*@
+        <label for="ReleaseDate">Release Date</label>
+        @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:MMM d yyyy}", new { @class = "form-control" })   @*using textboxfor supports validation (ie string has to be 255 characters or less)*@
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Genre)
+        @*supply list of items for dropdown list with SelectList. Id holds value for each item, Name holds text*@
+        @Html.DropDownListFor(m => m.Movie.Genre, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })   @*using textboxfor supports validation (ie string has to be 255 characters or less)*@
+    </div>
+
+    <div class="form-group">
+
+        <label for="NumberInStock">Number in Stock</label>
+        @Html.TextBoxFor(m => m.Movie.NumberInStock)   @*using textboxfor supports validation (ie string has to be 255 characters or less)*@
+    </div>
+
+    @*hidden field, because Save action references Id*@
+    @Html.HiddenFor(m => m.Movie.Id)
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}

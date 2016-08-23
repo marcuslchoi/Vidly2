@@ -100,5 +100,35 @@ namespace Vidly2.Controllers
             return Content(year + "/" + month);
         }
 
+        public ActionResult New()
+        {
+            var genres = _context.Genres.ToList();
+            var viewModel = new MovieFormViewModel
+            {
+                Genres = genres
+            };
+
+            return View("MovieForm",viewModel);
+        }
+
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+                _context.Movies.Add(movie);
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+
+                //can use automapper to do this: Mapper.Map(customer, customerInDb);
+                movieInDb.Name = movie.Name;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.Genre = movie.Genre;
+                //movieInDb.GenreId = customer.GenreId;
+            }
+
+            _context.SaveChanges(); //generates sql statements and runs them at run time
+            return RedirectToAction("Index", "Movies");
+        }
+
     }
 }
