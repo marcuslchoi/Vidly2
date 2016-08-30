@@ -263,6 +263,14 @@
     <Compile Include="Migrations\201608221935324_AddGenreToMovieAgain.Designer.cs">
       <DependentUpon>201608221935324_AddGenreToMovieAgain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608301532551_ChangeBackToGenre.cs" />
+    <Compile Include="Migrations\201608301532551_ChangeBackToGenre.Designer.cs">
+      <DependentUpon>201608301532551_ChangeBackToGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608301540427_AddDateAdded.cs" />
+    <Compile Include="Migrations\201608301540427_AddDateAdded.Designer.cs">
+      <DependentUpon>201608301540427_AddDateAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -403,6 +411,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608221935324_AddGenreToMovieAgain.resx">
       <DependentUpon>201608221935324_AddGenreToMovieAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608301532551_ChangeBackToGenre.resx">
+      <DependentUpon>201608301532551_ChangeBackToGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608301540427_AddDateAdded.resx">
+      <DependentUpon>201608301540427_AddDateAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

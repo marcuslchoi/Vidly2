@@ -114,7 +114,10 @@ namespace Vidly2.Controllers
         public ActionResult Save(Movie movie)
         {
             if (movie.Id == 0)
+            {
+                movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie);
+            }   
             else
             {
                 var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
@@ -123,6 +126,8 @@ namespace Vidly2.Controllers
                 movieInDb.Name = movie.Name;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
                 movieInDb.Genre = movie.Genre;
+                
+
                 //movieInDb.GenreId = customer.GenreId;
             }
 
